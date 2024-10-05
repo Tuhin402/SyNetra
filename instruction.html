@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyNetra > Instructions || Tuhin </title>
+    <!-- Bootstrap & Font Awesome  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <style>
+        /* default css ===========================*/
+        @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        *::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Josefin Sans";
+            background-color: rgb(0, 0, 26);
+        }
+
+        /* navbar animations===========================*/
+        #checkbox {
+            display: none;
+        }
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition-duration: 0.3s;
+        }
+        .bars {
+            width: 100%;
+            height: 4px;
+            background-color: rgb(43, 173, 224);
+            border-radius: 5px;
+            transition-duration: 0.3s;
+        }
+        #checkbox:checked + .toggle .bars {
+            margin-left: 13px;
+        }
+        #checkbox:checked + .toggle #bar2 {
+            transform: rotate(135deg);
+            margin-left: 0;
+            transform-origin: center;
+            transition-duration: 0.3s;
+        }
+        #checkbox:checked + .toggle #bar1 {
+            transform: rotate(45deg);
+            transition-duration: 0.3s;
+            transform-origin: left center;
+        }
+        #checkbox:checked + .toggle #bar3 {
+            transform: rotate(-45deg);
+            transition-duration: 0.3s;
+            transform-origin: left center;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(
+            135deg,
+            rgb(26, 42, 108),
+            rgb(178, 31, 31),
+            rgb(253, 187, 45)
+            );
+            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+        .navbar .text-wrapper span {
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        .navbar-brand {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            width: 150px;
+            height: 35px;
+        }
+        .text-wrapper {
+            display: flex;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .virtual-assistant,
+        .sunetra {
+            position: absolute;
+            white-space: nowrap;
+            transition: transform 0.4s ease-in-out;
+        }
+        .virtual-assistant {
+            transform: translateX(0);
+        }
+        .sunetra {
+            transform: translateX(100%);
+        }
+        .navbar-brand:hover .virtual-assistant {
+            transform: translateX(-100%);
+        }
+        .navbar-brand:hover .sunetra {
+            transform: translateX(-150%);
+        }
+        .navbar-brand:not(:hover) .sunetra {
+            transform: translateX(100%);
+        }
+
+        .navbar-brand:not(:hover) .virtual-assistant {
+            transform: translateX(0);
+        }
+        .navbar-nav li a {
+            color: #fff;
+            font-weight: 400;
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -3px;
+            background-color: #53e7f5;
+            transition: width 0.4s ease;
+        }
+        .navbar-nav li a:hover::after {
+            width: 100%;
+        }
+        .navbar-nav li a:hover {
+            color: #53e7f5;
+        }
+        .navbar-nav li a {
+            display: inline-block;
+            position: relative;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* content ===========================*/
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0, 0, 26);
+        }
+        .box_head {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin: 0 auto;
+            background-image: url('Images/ibanner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box_head::before {
+            content: ""; 
+            position: absolute; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); 
+            z-index: 1; 
+        }
+        .text_center {
+            position: relative;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            height: auto;
+            padding: 25px;
+            background-color: transparent;
+            color: #fff; 
+            z-index: 2; 
+        }
+        .box_body{
+            width: 80%;
+            height: auto;
+            margin: 50px auto;
+        }
+        .paragraph {
+            color: #adadad;
+            padding-top: 10px;
+            font-size: 1.2em;
+            line-height: 1.2em;
+            font-weight: 400;
+        }      
+        .bold {
+            font-weight: 700;
+            color: #e6e4e4;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <div class="text-wrapper">
+            <span class="virtual-assistant">Made by Tuhin</span>
+            <span class="sunetra" style="color: #53e7f5; margin-left: 15px"
+              >SyNetra</span
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox" class="toggle">
+            <div class="bars" id="bar1"></div>
+            <div class="bars" id="bar2"></div>
+            <div class="bars" id="bar3"></div>
+          </label>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tel:6291996890">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="feature">
+      <div class="box">
+        <div class="box_head">
+            <h1 class="text_center">Instructions <i class="fa-solid fa-location-arrow" style="font-size: 20px"></i></h1>
+        </div>
+        <div class="box_body">
+            <p class="paragraph">
+              Thank you for visiting <span class="bold" style="color: #fd4347"">SyNetra</span>, your personal virtual assistant created by Tuhin Sarkar! SyNetra is here to assist you with a variety of tasks ranging from answering your queries to opening applications and websites.
+              <br /><br />
+              <span class="bold" style="font-size: 1.3em; color: #fd4347">1. What Can SyNetra Do?</span>
+              <br /><br />
+              1.1 SyNetra can perform the following tasks to make your life easier:
+              <br /><br />
+              <span class="bold">Basic Information:</span> Ask SyNetra for the current time, date, day, month, or year, and it will instantly respond with the information.
+              <br />
+              <span class="bold">Search the Web:</span> Whether you're curious about a specific topic, need answers, or want to look something up, just ask SyNetra to search the internet for you.
+              <br />
+              <span class="bold">Open Applications:</span> SyNetra can quickly open popular apps and websites like YouTube, Google, WhatsApp, Instagram, Facebook, LinkedIn, and Twitter on your device.
+              <br />
+              <span class="bold">Emotional Support:</span> Feeling happy, sad, angry, or bored? SyNetra can respond in a fun, engaging way, and even suggest activities when you're bored or provide comforting words when you're sad.
+              <br /><br />
+              1.2 SyNetra is designed to offer a conversational experience with natural responses to basic questions, like:
+              <br />
+              - "What is your name?"  
+              - "Who made you?"  
+              <br /><br />
+              <span class="bold" style="font-size: 1.3em; color: #fd4347">2. Limitations of SyNetra</span>
+              <br /><br />
+              2.1 While SyNetra is a powerful virtual assistant, it has some limitations:
+              <br /><br />
+              - <span class="bold">No Deep Emotional Understanding:</span> SyNetra cannot fully understand or interpret complex emotions like love or sadness on a deeper level.
+              <br />
+              - <span class="bold">Limited App Integration:</span> SyNetra can open popular apps like YouTube and Instagram, but it may not support every app or website that exists.
+              <br />
+              - <span class="bold">Offline Functionality:</span> SyNetra requires an internet connection to perform tasks like searching the web or opening online applications.
+              <br /><br />
+              2.2 Despite these limitations, SyNetra is continuously evolving and will aim to provide an even better experience with future updates.
+              <br /><br />
+              <span class="bold" style="font-size: 1.3em; color: #fd4347">3. How To Use SyNetra?</span>
+              <br /><br />
+              3.1 It's easy to interact with SyNetra! Just say your command while turning the mic button on, and SyNetra will respond instantly. Some examples of what you can ask:
+              <br />
+              - "Open YouTube on web"  
+              - "What time is it?"  
+              - "I'm feeling sad"  
+              - "Search for the latest news"
+              <br /><br />
+              3.2 If SyNetra doesn't understand your command or cannot perform the requested action, it will do its best to search the web for relevant information related to your request.
+              <br /><br />
+              <span class="bold">Happy interacting with SyNetra ❤️, your personal virtual assistant......!</span>
+            </p>
+        </div>   
+        
+        <div class="dummy" style="width: 100%; height: 30px; background-color: transparent;"></div>
+      </div>
+    </section>
+
+    <!-- GSAP & Bootstrap Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

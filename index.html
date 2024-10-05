@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyNetra || by Tuhin Sarkar</title>
+    <!-- Bootstrap & Font Awesome  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="text-wrapper">
+                    <span class="virtual-assistant">Made by Tuhin</span>
+                    <span class="sunetra" style="color: #53E7F5; margin-left: 15px;">SyNetra</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox" class="toggle">
+                    <div class="bars" id="bar1"></div>
+                    <div class="bars" id="bar2"></div>
+                    <div class="bars" id="bar3"></div>
+                </label>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="instruction.html">Instructions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tel:6291996890">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>         
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4" style="font-weight: 700;">Your Smart Virtual Assistant</h1>
+            <p class="lead" style="font-weight: 500;">Talk to me and let me assist you!</p>
+        </div>
+        <div class="message-box">
+            <textarea class="form-control" id="messageText" rows="1" placeholder="Use the mic button to speak."></textarea>
+            <button id="voiceButton" class="btn btn-primary"><i class="fas fa-microphone"></i></button>
+        </div>
+    </section>
+    
+    <div id="gifOverlay" class="gif-overlay">
+        <img src="https://i.pinimg.com/originals/6b/a1/74/6ba174bf48e9b6dc8d8bd19d13c9caa9.gif" alt="Voice Recording">
+    </div>
+
+    <!-- modal popup -->
+    <div class="modal fade" id="instructionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6 modal-left"></div>
+              <div class="col-md-6 modal-right">
+                <div class="modal-body text-center">
+                  <h2>Before Using SyNetra</h2>
+                  <p>Please make sure to read the instructions carefully before using our virtual assistant SyNetra for a smooth experience.</p>
+                  <a href="instruction.html" class="btn btn-primary">Read Now</a>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-close position-absolute top-0 end-0 p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+    </div> 
+
+    <!-- GSAP & Bootstrap Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        setTimeout(() => {
+            const myModal = new bootstrap.Modal(document.getElementById('instructionModal'), {
+            backdrop: 'static', 
+            keyboard: false     
+            });
+            myModal.show();
+        }, 3000);
+    </script>
+</body>
+</html>
