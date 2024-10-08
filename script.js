@@ -59,7 +59,7 @@ voiceButton.addEventListener('click',()=>{
 
 function takeCommand(message){
     if (message.includes("what is your name") || message.includes("who are you") || message.includes("tell me your name") || message.includes("who made you") || message.includes("what are you")) {
-        speak("I am SyNetra, your virtual assistant, Made by Tuhin, so what do you want me to do?");
+        speak("I am SyNetra, your virtual assistant, Made by Master!, so what do you want me to do?");
     }  
     else if(message.includes("how are you")){
         speak ("just sitting and chilling, what about you?");
@@ -82,43 +82,35 @@ function takeCommand(message){
     else if(message.includes("i am angry")){
         speak ("Just say the name, who made you angry, let me handle that bastard!!");
     }
-    else if(message.includes("open youtube on web")){
+    else if(message.includes("open youtube")){
         speak ("opening youtube on web..");
         window.open("https://www.youtube.com/","_blank");
+    }
+    else if(message.includes("open facebook")){
+        speak ("opening facebook on web..");
+        window.open("https://www.facebook.com/","_blank");
+    }
+    else if(message.includes("open instagram")){
+        speak ("opening instagram on web..");
+        window.open("https://www.instagram.com/","_blank");
+    }
+    else if(message.includes("open linkedin")){
+        speak ("opening linkedin on web..");
+        window.open("https://www.linkedin.com/","_blank");
+    }
+    else if(message.includes("open whatsapp")){
+        speak ("opening whatsapp on web..");
+        window.open("https://www.whatsapp.com/","_blank");
     }
     else if(message.includes("open google on web")){
         speak ("opening google on web..");
         window.open("https://www.google.com/","_blank");
     }
-    else if(message.includes("open whatsapp")){
+    else if(message.includes("open whatsapp application")){
         speak ("opening whatsapp..");
         window.open("whatsapp://");
     }
-    else if(message.includes("open instagram")){
-        speak ("opening instagram..");
-        window.open("instagram://");
-    }
-    else if(message.includes("open facebook")){
-        speak ("opening facebook..");
-        window.open("facebook://");
-    }
-    else if(message.includes("open twitter") || message.includes("open x")){
-        speak ("opening x..");
-        window.open("x://");
-    }
-    else if(message.includes("open linkedin")){
-        speak ("opening linkedin..");
-        window.open("linkedin://");
-    }
-    else if(message.includes("open google")){
-        speak ("opening google..");
-        window.open("google://");
-    }
-    else if(message.includes("open youtube")){
-        speak ("opening youtube..");
-        window.open("youtube://");
-    }
-    else if(message.includes("open calculator")){
+    else if(message.includes("open calculator application")){
         speak ("opening calculator..");
         window.open("calculator://");
     }
