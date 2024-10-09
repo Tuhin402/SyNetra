@@ -58,7 +58,7 @@ voiceButton.addEventListener('click',()=>{
 })
 
 function takeCommand(message){
-    if (message.includes("what is your name") || message.includes("hii") || message.includes("who are you") || message.includes("tell me your name") || message.includes("who made you") || message.includes("what are you")) {
+    if (message.includes("what is your name") || message.includes("hi") || message.includes("who are you") || message.includes("tell me your name") || message.includes("who made you") || message.includes("what are you")) {
         speak("Hello, I am SyNetra, your virtual assistant, Made by my Master!, so what do you want me to do?");
     }  
     else if(message.includes("how are you")){
